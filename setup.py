@@ -1,27 +1,5 @@
-from distutils.core import setup
-import os
+from setuptools import setup, find_packages
 from phonenumber_field import __version__
-
-
-packages, data_files = [], []
-root_dir = os.path.dirname(__file__)
-if root_dir:
-    os.chdir(root_dir)
-
-for dirpath, dirnames, filenames in os.walk('phonenumber_field'):
-    # Ignore dirnames that start with '.'
-    for i, dirname in enumerate(dirnames):
-        if dirname.startswith('.'): del dirnames[i]
-    if '__init__.py' in filenames:
-        pkg = dirpath.replace(os.path.sep, '.')
-        if os.path.altsep:
-            pkg = pkg.replace(os.path.altsep, '.')
-        packages.append(pkg)
-    elif filenames:
-        prefix = dirpath[11:] # Strip "currencies/" or "currencies\"
-        for f in filenames:
-            data_files.append(os.path.join(prefix, f))
-            
 
 setup(
     name="django-phonenumber-field",
@@ -41,8 +19,7 @@ setup(
     author_email='stefan.foulis@gmail.com',
     maintainer='Stefan Foulis',
     maintainer_email='stefan.foulis@gmail.com',
-    package_dir={'phonenumber_field': 'phonenumber_field'},
-    packages=packages,
+    packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
     classifiers=[
