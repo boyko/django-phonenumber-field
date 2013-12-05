@@ -41,7 +41,7 @@ setup(
     author_email='stefan.foulis@gmail.com',
     maintainer='Stefan Foulis',
     maintainer_email='stefan.foulis@gmail.com',
-    package_dir={'phonenumber_field': 'phonenumber_field'}
+    package_dir={'phonenumber_field': 'phonenumber_field'},
     packages=packages,
     include_package_data=True,
     zip_safe=False,
