@@ -1,9 +1,8 @@
 from setuptools import setup, find_packages
-from phonenumber_field import __version__
 
 setup(
     name="django-phonenumber-field",
-    version = __version__,
+    version = ":versiontools:phonenumber_field:",
     url='http://github.com/stefanfoulis/django-phonenumber-field',
     license='BSD',
     platforms=['OS Independent'],
